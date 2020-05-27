@@ -1,0 +1,139 @@
+.column {
+    
+    float: left;
+    text-align: center;
+}
+
+#columnsWrapper {
+   
+    background-color: #333333;
+    margin: auto;
+    width: 1101px;
+    border: 6px solid white;
+    border-radius: 50px;
+    padding: 8px;
+}
+
+#skills {
+    
+    text-align: center;
+    font-family: "Courier";
+    color: #00ff00;
+    font-size: 30px;
+}
+
+#rowWrapper {
+    
+    width: 428px;
+    margin: 20px;
+}
+
+h3 , p {
+    
+    font-family: "Verdana";
+    color: #00cc00;
+    font-size: 17px;
+}
+
+/* https://www.w3schools.com/howto/howto_css_clearfix.asp */
+.clearfix:after {
+    
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* https://www.w3schools.com/tags/tag_hr.asp */
+hr {
+    
+    border-top: 2px solid white;
+    border-top: 2px solid white;
+}
+
+#bottomRow , #topRow {
+    
+    width: 372px;
+    padding: 20px;
+    border: 8px solid white;
+    border-radius: 50px;
+}
+
+#bottomRow {
+    
+    margin-top: 20px;
+    height: 120px;
+    background-color: #003300;
+}
+
+#topRow {
+    
+    height: 190px;  
+    background-color: #660022;
+}
+
+#leftColumn , #rightColumn {
+    
+    padding: 20px;
+    margin: 20px;
+    height: 390px;
+    border: 8px solid white;
+    border-radius: 50px;
+}
+
+#leftColumn {
+    
+    width: 241px;
+    background-color: #660066;
+}
+
+#rightColumn {
+    
+    width: 200px;
+    background-color: #000066;
+}
+
+body {
+    
+    background-color: black;
+    padding-top: 70px; /* https://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site */
+}
+
+#navbar {
+    background-color: #262626;
+    padding: 1px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
+.name {
+    margin:10px;
+    font-size: 30px;
+    font-family:Courier;
+    color:#00ff00;
+}
+
+a {
+
+    color : #00ff00;
+    text-decoration:none; /* https://www.w3schools.com/css/css_link.asp */
+    border-left: 2px solid darkgray;
+    padding-left: 20px;
+}
+
+.navbarName {
+    margin: 10px;
+    font-size: 30px;
+    font-family: Courier; /* https://www.w3schools.com/cssref/css_websafe_fonts.asp */
+    color: #00ff00;
+    float: left;
+}
+
+.active {
+	color: white;
+}
+
+a:hover {
+	background-color: gray;
+}

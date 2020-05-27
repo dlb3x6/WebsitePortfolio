@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Challenge 4</title>
+        <meta name="viewport" content="width-device-width, initial-scale=1, shrink-to-fit=no"> <!--https://getbootstrap.com/docs/4.0/getting-started/introduction/#starter-template-->
+        <meta charset="utf-8"> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> <!--https://getbootstrap.com/docs/4.0/getting-started/introduction/#css-->
+        <link href="dlb3x6TablesS20.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <!-- 
+            Name: Darian Bilderback
+            Pawprint: DLB3X6
+            Date: 2/14/2020
+            Challenge 4: Tables Spring 2020
+        -->
+        <div id = "navbar"> <!-- navigation bar -->
+            <h1 class="navbarName" ><a href = "index.html">Darian Bilderback</a></h1><a href = "dlb3x6Columns.html" class = "navbarName">Skills</a><a href="dlb3x6TablesS20.html" class="navbarName active">Classes Taken</a><a href="dlb3x6ProjectsS20.html" class="navbarName">Projects</a>
+        </div>
+        <table id = "classesTaken" class = "table table-hover">
+            <thead>
+                <tr>
+                    <th colspan = 5>Classes Taken</th>
+                </tr>
+                <tr>
+                    <th colspan = "5"><img src = "muTiger.png" alt = "Mizzou Tigers Logo" id = "muTiger"><p id = "um">University of Missouri - Columbia</p></th>
+                </tr>
+                <tr>
+                    <th scope="col">Department</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Projects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="3" id = "it">Information Technology</td>
+                    <td>Introduction to Digital Media Design</td>
+                    <td>INFOTC 1610</td>
+                    <!--http://catalog.missouri.edu/courseofferings/infotc/-->
+                    <td>This project-based course is an introduction to the concepts and practices of audio design, graphic design, motion media design and basic video editing. Current technologies are employed to examine design fundamentals and applications of media design that apply to audio and video production and new media production.</td>
+                    <td><p>Continuity and Pacing using a NLE</p>
+                        <p>Basic Lyric Animations using After Effects</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Programming Languages and Paradigms</td>
+                    <td>INFOTC 2040</td>
+                    <td>This course presents programming principles and their syntactical representation and implementation across languages including those that are compiled and interpreted. The course shows how to implement algorithms and data structures to solve problems while utilizing paradigms offered by the programming languages such as procedural, object-oriented, protocol-oriented, functional, and declarative. Language support for strong and weak typing and type safety are covered along with support for optional values. Provides experience in developing algorithms and determining their efficiency, designing application architecture, and developing applications. Building and using libraries/application programming interfaces is covered. Git and GitHub are used for code versioning and collaboration. Integrated development environments (IDEs) are used for managing, building, debugging, and testing applications.</td>
+                    <td>
+                        <p>Music Playlist Analyzer using command line arguments and file I/O</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Media Technology and Design I</td>
+                    <td>INFOTC 2610</td>
+                    <td>This project-based course examines the fundamentals of media technology, from capture devices to the software and hardware that processes data. Through hands-on experience with capturing technology, audio recording devices, and the software and hardware components needed to manipulate the recordings, students will process big-data files to create meaningful manipulations in assembly, engineering, and colorization. Students will utilize a spectrum of camera equipment, recording devices and facilities to achieve an understanding of audio/video capture, project planning and implementation, hardware assessment, optimization practices through hardware acceleration, and video processing. This course also focuses on basic editing theory and industry trends. This is done through in-class demonstrations, online modules, and supplementary material hosted on online.</td>
+                    <td>
+                        <p>N/A</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2" id = "cs">Computer Science</td>
+                    <td>Algorithm Design and Programming I</td>
+                    <td>CMP_SC 1050</td>
+                    <td>This course provides experience in developing algorithms, designing, implementing programs. Topics include syntax/semantics, flow control, loops, recursion, I/O, arrays, strings and pointers.</td>
+                    <td>
+                        <p>Learned basic C programming</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Web Application Development I</td>
+                    <td>CMP_SC 2830</td>
+                    <td>This course will attempt to provide a comprehensive understanding of the evolution, the technologies, and the tools of the Internet. In particular, issues pertaining to the World Wide Web and Multimedia (HTML, CGI, Web based applications) will be discussed in detail.</td>
+                    <td>
+                        <p>Portfolio Website</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div id = "cssCardWrapper">
+            <div class = "column" id = "leftColumn">
+                <img src = profile.JPG alt = "Darian Bilderback" id = "profile">
+            </div>
+            <div class = "column" id = "middleColumn">
+                <h2 class = "cssCardText" id = "name">Darian Bilderback</h2>
+                <hr>
+                <p class = "cssCardText">Bachelor's of Science in Information Technology - Sophomore</p>
+                <p class = "cssCardText">Credit hours: 61</p>
+            </div>
+            <div class = "column" id = "rightColumn">
+                <h2 class = "cssCardText" id = "info">Info</h2>
+                <hr>
+                <p class = "cssCardText">Email: darianbilderback@gmail.com</p>
+                <p class = "cssCardText">LinkedIn:<a href = "https://www.linkedin.com/in/darian-bilderback-bb4639171/" id = "specialLink"> https://www.linkedin.com/in/darian-bilderback-bb4639171/</a></p>
+            </div>
+        </div>
+    </body>
+</html>

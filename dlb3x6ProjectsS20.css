@@ -1,0 +1,100 @@
+#navbar {
+    background-color: #262626;
+    padding: 1px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
+a {
+    color : #00ff00;
+    text-decoration: none;
+    border-left: 2px solid darkgray;
+    padding-left: 20px;
+}
+
+.navbarName {
+    margin: 10px;
+    font-size: 30px;
+    font-family: Courier, serif;
+    color: #00ff00;
+    float: left;
+}
+
+body {
+    background: black;
+    padding-top: 70px;
+}
+
+#mainContainer {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    margin: 10px auto 0;
+    width: 90%;
+    position: relative;
+}
+
+.card {
+    border: 4px groove #00ff00;
+    border-radius: 50px;
+    overflow: hidden;
+    width: 400px;
+    height: 250px;
+    background-color: #262626;
+    position: relative;
+    margin: 5% auto 5% auto; /* https://developer.mozilla.org/en-US/docs/Web/CSS/margin */
+    box-shadow: 20px 10px gray;
+}
+
+.cardImage {
+    width: 40%;
+    height: 100%;
+    border-right: 10px double white;
+    float: left;
+}
+
+.cardText {
+    width: 60%;
+    padding-left: 40%;
+    text-align: center;
+}
+
+.title {
+    margin: 10px 0 10px;
+    font-size: 20px;
+    font-family: Courier, serif;
+    color: #00ff00
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.description {
+    font-size: 15px;
+    padding: 10px;
+}
+
+.link {
+    font-size: 20px;
+    font-style: bold;
+    color: white;
+    padding: 0;
+    border: none;
+}
+
+p {
+    color:#00cc00;
+    font-family:verdana;
+}
+
+.active {
+	color: white;
+}
+
+a:hover {
+	background-color: gray;
+}

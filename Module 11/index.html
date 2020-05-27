@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--
+        Name: Darian Bilderback
+        Pawprint: dlb3x6
+        Date: 4/17/2020
+        Challenge: AJAX Spring 2020
+    `-->
+    <head>
+        <meta charset="utf-8">
+        <title>AJAX</title>
+        <link rel="stylesheet" type="text/css" href="dlb3x6AJAXS20.css">
+        
+        <script src="jquery-3.4.1.js"></script>
+        
+        <script> 
+                function convert(timestamp){
+
+                     var unixtimestamp = timestamp;                    
+                     var months_arr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];                    
+                     var date = new Date(unixtimestamp*1000);                     
+                     var year = date.getFullYear();                    
+                     var month = months_arr[date.getMonth()];                     
+                     var day = date.getDate();                   
+                     var hours = date.getHours();                     
+                     var minutes = "0" + date.getMinutes();                    
+                     var seconds = "0" + date.getSeconds();
+                     var convdataTime = month + '/' + day + '/' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+                     return convdataTime; //https://makitweb.com/convert-unix-timestamp-to-date-time-with-javascript/
+
+                    }
+            
+                function getInfo(){
+                    $.get("https://www.mizzouit.com/2830/challenge9/classInfo.php", {
+                        "content" : "info"}, function(data){
+                       $('#infoArea').html("<h1>" + data + "</h1><br>");
+                    });
+                    
+                    $.get("https://www.mizzouit.com/2830/challenge9/classInfo.php", {
+                        "content" : "classType"}, function(data){
+                        $('#classArea').html("<h2>" + data + "</h2><br>");
+                    });
+                    
+                    $.get("https://www.mizzouit.com/2830/challenge9/classInfo.php", {
+                        "content" : "currentAssignment"}, function(data){
+                        //Buttons for XML or JSON
+                        $("#assignmentArea").html("<h3>Current Assignment</h3><br><p>" + data + ",</p><br><button class=\"button xmlButton\" onclick=\"getXMLAssignment(); getNext()\">XML</button><button class=\"button\" onclick=\"getJSONAssignment(); getNext()\">JSON</button>");
+                        //Makes sure items all appear at same time
+                        $("#assignmentArea").css("display", "block");
+                    });
+                }
+            //Same deal as above
+                function getNext(){
+                    $.get("https://www.mizzouit.com/2830/challenge9/classInfo.php", {
+                        "content" : "officeHours"}, function(data){
+                        //Buttons for XML or JSON
+                        //Also the select thingy for days of the weeks
+                        $("#officeHoursArea").html("<h3>Office Hours</h3><br><p>" + data + "</p><br><select id=\"days\"><option value=\"unselected\" selected>Select a day of the week: Mon-Fri</option><option value=\"monday\">Monday</option><option value=\"tuesday\">Tuesday</option><option value=\"wednesday\">Wednesday</option><option value=\"thursday\">Thursday</option><option value=\"friday\">Friday</option></select><br><button type=\"submit\" class=\"button xmlButton\" onclick=\"getXMLOfficeHours()\">XML</button>");
+                        //Makes sure items all appear at same time
+                        $("#officeHoursArea").css("display", "block");
+                    });
+                }
+            
+                function getXMLAssignment(){
+                    $("#loadingA").css("display", "block");
+                    $("#placeA p").html("Loading..");
+                    $.get("https://www.mizzouit.com/2830/challenge9/classInfo.php", {
+                        "content" : "currentAssignment",
+                        "format" : "xml"}, function(data){
+                        var xml = data;
+                        xmlDoc = $.parseXML( xml ),
+                        $xml = $( xmlDoc ),
+                        $assignmentName = $xml.find("assignmentName");
+                        $timestamp = $xml.find( "dueDateTimestamp" );
+                        for(var i=0;i<$assignmentName.length;i++){
+                        $timestamp = convert($timestamp[i].innerHTML);
+                        $("#placeA").html("<p>" + $assignmentName[i].innerHTML + " " + $timestamp + "</p>");
+                        $("#loadingA").css("display", "none");
+                        }
+                    }, "text"); //https://stackoverflow.com/questions/5810525/jquery-ajax-call-returning-object-xmldocument
+                }
+            
+                function getJSONAssignment(){
+                    $("#loadingA").css("display", "block");
+                    $("#placeA p").html("Loading..");
+                    $.getJSON("https://www.mizzouit.com/2830/challenge9/classInfo.php", {
+                        "content" : "currentAssignment",
+                        "format" : "json"}, function(data){
+                        $timestamp = convert(data.dueDateTimestamp)
+                        $("#placeA").html("<p>" + data.assignmentName + " " + $timestamp + "</p>");
+                        $("#loadingA").css("display", "none");
+                    });
+                }
+                    
+                     function getXMLOfficeHours(){
+                    var day = $("#days").val();
+                    if (day == "unselected"){
+                        window.alert("Select a day of the week");
+                        return false;
+                    }
+                    $("#list").html("");
+                    $("#loadingB").css("display", "block");
+                    $("#placeB p").html("Loading..");
+                    $.get("https://www.mizzouit.com/2830/challenge9/classInfo.php", {
+                        "content" : "officeHours",
+                        "format" : "xml",
+                        "day" : day}, function(data){
+                        var xml = data;
+                        xmlDoc = $.parseXML( xml ),
+                        $xml = $( xmlDoc ),
+                        $person = $xml.find( "person" );
+                        $time = $xml.find("time");
+                        $location = $xml.find("location");
+                        for(var i=0;i<$person.length;i++){
+                        $( "#placeB ul" ).append("<li>" + $person[i].innerHTML + "</li>" + "<li>Office Hours: " + $time[i].innerHTML + "</li>" + "<li>Location: " + $location[i].innerHTML + "</li>" + "<br>"); //https://api.jquery.com/jQuery.parseXML/
+                        }
+                        $("#loadingB").css("display", "none");
+                        
+                    }, "text");
+                }
+                    
+        </script>
+    </head>
+    
+    <body onload="getInfo()">
+        <form action="../dlb3x6ProjectsS20.html" method="GET">
+            <button id="return">Return to Projects</button>
+        </form>
+        
+        <div id="infoArea"></div>
+        <div id="classArea"></div>
+        <div class="inputAreas" id="assignmentArea"></div>
+        <div class="clearfix place" id="placeA">
+            <p id="loadingA"></p>
+        </div>
+        <div class="inputAreas" id="officeHoursArea"></div>
+        <div class="place" id="placeB">
+            <p id="loadingB"></p>
+            <ul id="list"></ul>
+        </div>
+    </body>
+</html>

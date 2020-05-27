@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+    Name: Darian Bilderback
+    Pawprint: dlb3x6
+    Date: 4/2/2020
+    Challenge: PHP S20
+    -->
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="dlb3x6PHPS20.css">
+        <title>PHP</title>
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+        <script src="dlb3x6PHPS20.js"></script> <!--https://www.w3schools.com/tags/att_script_src.asp-->
+    </head>
+    
+    <body>
+        <form action="../dlb3x6ProjectsS20.html" method="GET">
+            <button id="return">Return to Projects</button>
+        </form> <!--https://stackoverflow.com/questions/6393827/can-i-nest-a-button-element-inside-an-a-using-html5-->
+        <div id="wrapper">
+            <h1 id="wrapperTitle">PHP Functions</h1>
+            <form action="dlb3x6PHPS20.php" method="GET">
+                <input type="button" id="functionSubmit" value="Function">
+                <select id="phpFunctions">
+                    <option value="default" selected>Select a PHP function to use</option>
+                    <option value="greeting">Greeting</option>
+                    <option value="factorial">Factorial</option>
+                    <option value="reverseString">Reverse String</option>
+                    <option value="sumSquares">Sum of Squares</option>
+                </select>
+            </form>
+            <form action="dlb3x6PHPS20.php" method="GET" target="_blank" class="forms" id="greeting" hidden>
+                <input type="text" class="textField" name="firstName" placeholder="First Name">
+                <br>
+                <input type="text" class="textField" name="lastName" placeholder="Last Name">
+                <br>
+                <input type="submit" class="submit">
+                <input type="button" class="clear" value="Clear">
+            </form>
+            <form action="dlb3x6PHPS20.php" method="GET" target="_blank" class="forms" id="factorial" hidden>
+                <input type="text" class="textField" name="numberForFactorial" id="factorialInput" placeholder="Number">
+                <br>
+                <input type="submit" class="submit">
+                <input type="button" class="clear" value="Clear">
+            </form>
+            <form action="dlb3x6PHPS20.php" method="GET" target="_blank" class="forms" id="reverseString" hidden>
+                <input type="text" class="textField" name="string" placeholder="String">
+                <br>
+                <input type="submit" class="submit">
+                <input type="button" class="clear" value="Clear">
+            </form>
+            <form action="dlb3x6PHPS20.php" method="GET" target="_blank" class="forms" id="sumSquares" hidden> <!--https://css-tricks.com/snippets/html/form-submission-new-window/-->
+                <input type="text" class="textField" name="n1" id="number1" placeholder="n1">
+                <input type="text" class="textField" name="n2" id="number2" placeholder="n2">
+                <br>
+                <input type="submit" class="submit">
+                <input type="button" class="clear" value="Clear">
+            </form>
+        </div>
+    </body>
+</html>

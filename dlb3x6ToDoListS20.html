@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--
+        Name: Darian Bilderback
+        Pawprint: dlb3x6
+        Date: 2/28/2020
+        Challenge: To-Do List S20
+    -->
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="dlb3x6ToDoListS20.css">
+        <title>To Do List</title>
+        <script src="jquery-3.4.1.js"></script>
+        
+        <script>
+            var isDark = 0;
+            
+            $(function(){
+                console.log("DOM finished loading");
+                
+                $(document).on('click', '#themes', function(){
+                    if (isDark == 0){
+                    document.body.style.backgroundColor = "white";
+                    $("h1").css("color", "black");
+                    $("p").css("color", "black"); //https://www.w3schools.com/jquery/jquery_css.asp
+                    document.getElementById("themes").innerHTML = "Toggle to: Dark Mode";
+                    document.getElementById("themes").style.backgroundColor = "white";
+                    document.getElementById("themes").style.color = "black";
+                    document.getElementById("themes").style.borderColor = "black";
+                    document.getElementById("toDoList").style.backgroundColor = "lightgray";
+                    document.getElementById("toDoList").style.borderColor = "black";
+                    document.getElementById("toDoList").style.color = "black";
+                    document.getElementById("addButton").style.backgroundColor = "white";
+                    document.getElementById("addButton").style.borderColor = "black";
+                    document.getElementById("addButton").style.color = "green";
+                    document.getElementById("clearButton").style.backgroundColor = "white";
+                    document.getElementById("clearButton").style.borderColor = "black";
+                    document.getElementById("form").style.backgroundColor = "lightgray";
+                    document.getElementById("form").style.borderColor = "black";
+                    isDark = 1;
+                    }
+                    else {
+                       document.body.style.backgroundColor = "black";
+                    $("h1").css("color", "white");
+                    $("p").css("color", "white"); //https://www.w3schools.com/jquery/jquery_css.asp
+                    document.getElementById("themes").innerHTML = "Toggle to: Light Mode";
+                    document.getElementById("themes").style.backgroundColor = "black";
+                    document.getElementById("themes").style.color = "white";
+                    document.getElementById("themes").style.borderColor = "white";
+                    document.getElementById("toDoList").style.backgroundColor = "#262626";
+                    document.getElementById("toDoList").style.borderColor = "white";
+                    document.getElementById("toDoList").style.color = "white";
+                    document.getElementById("addButton").style.backgroundColor = "black";
+                    document.getElementById("addButton").style.borderColor = "white";
+                    document.getElementById("addButton").style.color = "greenyellow";
+                    document.getElementById("clearButton").style.backgroundColor = "black";
+                    document.getElementById("clearButton").style.borderColor = "white";
+                    document.getElementById("form").style.backgroundColor = "#262626";
+                    document.getElementById("form").style.borderColor = "white";
+                    isDark = 0;
+                    }
+            });
+                
+                
+                $("#addButton").click(function(){
+                    var title = $("#textTitle").val(); //https://stackoverflow.com/questions/8258551/jquery-how-to-get-the-value-from-a-textbox
+                    var type = $("#addSelect").val();
+                    var date = $("#addDate").val(); //get data
+                    if (title == "" || type == "" || date == ""){
+                        window.alert("All text fields must be filled");
+                        return false;
+                    }
+                    
+                    $("#toDoList").css("height", "auto"); //Allows an ever-expanding To-Do List
+                    
+                    var nodeTi = document.createElement("p"); //Appending elements to list
+                    var textNodeTi = document.createTextNode(title);
+                    nodeTi.appendChild(textNodeTi);
+                    nodeTi.setAttribute("class", "title");
+                    document.getElementById("titleCol").appendChild(nodeTi); //https://www.w3schools.com/jsref/met_node_appendchild.asp
+                    
+                    var nodeTy = document.createElement("p");
+                    var textNodeTy = document.createTextNode(type);
+                    nodeTy.setAttribute("class", "type");
+                    nodeTy.appendChild(textNodeTy);
+                    document.getElementById("typeCol").appendChild(nodeTy);
+                    
+                    var nodeD = document.createElement("p");
+                    var textNodeD = document.createTextNode(date);
+                    nodeD.appendChild(textNodeD);
+                    nodeD.setAttribute("class", "date");
+                    document.getElementById("dateCol").appendChild(nodeD);
+                    
+                    var nodeAC = document.createElement("input");
+                    var nodeAB = document.createElement("br");
+                    nodeAC.setAttribute("type","image"); //https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/image
+                    nodeAC.setAttribute("src", "circleDarkMode.png"); //https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_img_create
+                    nodeAC.setAttribute("height", "59");
+                    nodeAC.setAttribute("width", "59");
+                    nodeAC.setAttribute("name", "checkCircle");
+                    nodeAC.setAttribute("class", "circle");
+                    document.getElementById("actionCol").appendChild(nodeAC);
+                    document.getElementById("actionCol").appendChild(nodeAB);
+                    
+                    document.getElementById("myForm").reset(); //https://www.w3schools.com/jsref/met_form_reset.asp
+                
+                    
+                    
+                    
+                    return false; //https://stackoverflow.com/questions/7803814/prevent-refresh-of-page-when-button-inside-form-clicked
+                });
+                $(document).on('click', '.circle', function(){  //https://stackoverflow.com/questions/15435564/click-not-fired-for-p-tag-within-jquery-dialog
+                    $('.date').first().remove();  
+                    $('.type').first().remove();
+                    $('.title').first().remove();
+                    $(this).remove();
+                });
+                
+                $("#clearButton").click(function(){
+                    $('.date').remove();  
+                    $('.type').remove();
+                    $('.title').remove();
+                    $('.circle').remove();
+                    $("#toDoList").css("height", "500px");
+                    
+                    
+                    return false;
+                });
+               $(document).on('dbclick', '.bigTitle', function(){
+                   var node = document.createElement("input");
+                   $('.bigTitle').remove();
+                   node.setAttribute("type","text");
+                   document.appendChild(node);
+                   
+               }); 
+            });
+             
+        </script>
+    </head>
+    <body>
+        <button id="themes">Toggle to: Light Mode</button>
+        <button id="return"><a href="dlb3x6ProjectsS20.html">Return to Projects</a></button>
+        <form><h1 class="bigTitle">To-Do List</h1></form>
+        <div id="toDoList" class="clearfix">
+            <div class="column" id="titleCol">
+                <h1>Title</h1>
+            </div>
+            
+            <div class="column" id="typeCol">
+                <h1>Type</h1>
+            </div>
+            
+            <div class="column" id="dateCol">
+                <h1>Date</h1>
+            </div>
+            
+            <div class="column" id="actionCol">
+                <h1>Action</h1>
+            </div>
+        </div>
+        
+        <div id="form">
+            <form action="#" method="post" id="myForm">
+                <div class="column2">
+                    <input type="text" name="title" id="textTitle" placeholder="Title: 15 character max" maxlength="15">
+                </div>
+                
+                <div class="column2">
+                    <select size="1" id="addSelect">
+                    <option id="homework" value="Homework">Homework</option>
+                    <option id="personalGoal" value="Personal Goal">Personal Goal</option>
+                    <option id="project" value="Project">Project</option>
+                    <option id="exam" value="Exam">Exam</option>
+                    </select>
+                    <br>
+                    <button id="addButton">Add to List</button>
+                </div>
+                
+                <div class="column2">
+                    <input type="date" id="addDate" name="date">
+                    <br>
+                    <button id="clearButton">Clear List</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

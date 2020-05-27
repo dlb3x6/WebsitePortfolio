@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang = en>
+    <head>
+        <title>Multi-Column Layout</title>
+        <meta charset = "utf-8">
+        <link rel = "stylesheet" type = "text/css" href = "dlb3x6Columns.css">
+    </head>
+    <body>
+        <!-- 
+            Name: Darian Bilderback
+            Pawprint: DLB3X6
+            Date: 2/7/2020
+            Challenge 3: Multi-Column Layout
+        -->
+        <div id = "navbar"> <!-- navigation bar -->
+            <h1 class="navbarName" ><a href = "index.html">Darian Bilderback</a></h1><a href = "dlb3x6Columns.html" class = "navbarName active">Skills</a><a href="dlb3x6TablesS20.html" class="navbarName">Classes Taken</a><a href="dlb3x6ProjectsS20.html" class="navbarName">Projects</a>
+        </div>
+        <!-- Main wrapper. This div should wrap all columns, row wrapper, and title header -->
+        <div id = "columnsWrapper" class = "clearfix">
+            <h2 id = "skills">Skills</h2>
+            <hr>
+            <!-- Left Column -->
+            <!-- Put left column physical width calculations here: 
+                241 -> Width
+                 40 -> Padding (20 left + 20 right)
+                 16 -> Border (8 left + 8 right)
+            +    40 -> Margin (20 left + 20 right)
+            _____________
+                337px PHYSICAL WIDTH
+            -->
+            <div class = "column" id = "leftColumn">
+                <h3>Languages</h3>
+                <p>C</p>
+                <p>C#</p>
+                <p>HTML/CSS</p>
+            </div>
+            <!-- Row Wrapper. This div will contain two rows -->
+            <!--Put middle column physical width calculations here:
+                428 -> Width
+                 40 -> Margin (20 left + 20 right)
+            ____________
+                468px PHYSICAL WIDTH
+            -->
+            <div class = "column" id = "rowWrapper">
+                <div id = "topRow">
+                    <h3>Coursework</h3>
+                    <p>Algorithm Design and Programming</p>
+                    <p>Introduction to Digital Media Design</p>
+                    <p>Programming Languages and Paradigms</p>
+                    <p>Web Application Development</p>
+                </div>
+                <div id = "bottomRow">
+                    <h3>Other</h3>
+                    <p>Content</p>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <!--Put right column physical width calculations here: 
+                200 -> Width
+                 40 -> Padding (20 left + 20 right)
+                 16 -> Border (8 left + 8 right)
+                 40 -> Margin (20 left + 20 right)
+            _____________
+                296px PHYSICAL WIDTH
+            -->
+            <div class = "column" id = rightColumn>
+                <h3>Technologies</h3>
+                <p>Visual Studio</p>
+                <p>Github</p>
+                <p>Adobe Premiere</p>
+                <p>Adobe Illustrator</p>
+                <p>Adobe After Effects</p>
+                <p>Adobe Photoshop</p>
+            </div>
+        </div>
+        <p>Last updated at: 3:57pm 3/19/2020</p>
+    </body>
+</html>

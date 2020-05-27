@@ -1,0 +1,159 @@
+#navbar {
+    background-color: #262626;
+    padding: 1px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
+a {
+    color : #00ff00;
+    text-decoration: none;
+    border-left: 2px solid darkgray;
+    padding-left: 20px;
+}
+
+.navbarName {
+    margin: 10px;
+    font-size: 30px;
+    font-family: Courier, serif;
+    color: #00ff00;
+    float: left;
+}
+
+body {
+    background: black;
+    padding-top: 70px;
+}
+
+th {
+    color: #00ff00;
+    font-family: Courier, serif;
+    font-size: 15pt;
+}
+
+#muTiger {
+    width: 26%;
+    float: left;
+    padding-left: 340px;
+    padding-top: 15px
+}
+
+#um {
+    padding-left: 1000px;
+    padding-top: 57px;
+}
+
+#classesTaken th, #classesTaken td {
+    border: 3px solid white;
+    height: 50px;
+    padding: 10px;
+            }
+#classesTaken th {
+    font-size: 18pt;
+}
+
+#classesTaken td {
+    font-family: "Verdana", "Arial", sans-serif;
+    color: #00cc00;
+    font-size: 17px;
+}
+
+table#classesTaken {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#cs {
+    background-color: #660066;
+}
+
+#it {
+    background-color: #660022;
+}
+
+#cssCardWrapper {
+    border: 3px solid black;
+    box-shadow: 0 0 50px 40px #404040;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 1000px;
+    height: 500px;
+    background-color: rgb(242, 242, 242);
+    border-radius: 20px;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.column {
+    display: inline-block;
+}
+
+#leftColumn{
+    width: 30%;
+}
+
+#middleColumn {
+    width: 30%;
+    vertical-align: top;
+}
+
+#rightColumn {
+    width: 39%;
+    vertical-align: top; /*https://stackoverflow.com/questions/13390220/why-does-an-inline-block-div-get-positioned-lower-when-it-has-content/13390336*/
+}
+
+#profile {
+    width: 90%;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.cssCardText {
+    font-family: Courier, serif;
+}
+
+#name {
+    font-size: 30px; 
+}
+
+#info {
+    text-align: center;
+    padding-top: 34px;
+}
+
+@keyframes blinking{
+    0% {color:red; text-decoration: underline}
+    25% {color:black}
+    50% {color: red}
+    100% {color:black}
+}
+
+@-webkit-keyframes blinking{
+    0% {color:red; text-decoration: underline}
+    25% {color:black}
+    50% {color: red}
+    100% {color:black}
+}
+
+#specialLink {
+    color: black;
+    border: none;
+    padding: 0;
+    animation: blinking 0.5s linear infinite normal;
+    -webkit-animation: blinking 0.5s linear infinite normal;
+}
+
+.active {
+	color: white;
+}
+
+a:hover {
+	background-color: gray;
+}
